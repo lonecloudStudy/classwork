@@ -12,51 +12,54 @@
         <img src="images/reg_logo.png">
     </div>
     <div class="reg">
+
         <div class="content">
-            <ul>
-                <li>
-                    <div class="inputContent">
-                        <i class="iUser"></i>
-                        <input type="text" placeholder="登录名">
-                    </div>
-                </li>
-                <li>
-                    <div class="inputContent">
-                        <i class="iPwd"></i>
-                        <input type="text" placeholder="密码">
-                    </div>
-                </li>
-                <li>
-                    <div class="inputContent">
-                        <i class="iPwd"></i>
-                        <input type="text" placeholder="确认密码">
-                    </div>
-                </li>
-                <li>
-                    <div class="inputContent">
-                        <i class="iEmail"></i>
-                        <input type="text" placeholder="电子邮箱">
-                    </div>
-                </li>
-                <li>
-                    <div class="inputContent">
-                        <i class="iName"></i>
-                        <input type="text" placeholder="大于等于两个汉字的真实姓名">
-                    </div>
-                </li>
-                <li>
-                    <div class="inputContent">
-                        <i class="iID"></i>
-                        <input type="text" placeholder="身份证号码">
-                    </div>
-                </li>
-            </ul>
-            <div class="readMe">
-                <input type="checkbox" name="" id="">
-                <span>我已阅读并同意 99yx.com</span>
-                <a href="#">《用户协议》</a>
-            </div>
-            <button class="submitBtn"> 完成注册</button>
+            <form id="registerForm">
+                <ul>
+                    <li>
+                        <div class="inputContent">
+                            <i class="iUser"></i>
+                            <input type="text" placeholder="登录名" id="usernmae" name="username">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="inputContent">
+                            <i class="iPwd"></i>
+                            <input type="text" placeholder="密码" name="password">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="inputContent">
+                            <i class="iPwd"></i>
+                            <input type="text" placeholder="确认密码" name="rePassword">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="inputContent">
+                            <i class="iEmail"></i>
+                            <input type="text" placeholder="电子邮箱" name="email">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="inputContent">
+                            <i class="iName"></i>
+                            <input type="text" placeholder="大于等于两个汉字的真实姓名" name="fullname">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="inputContent">
+                            <i class="iID"></i>
+                            <input type="text" placeholder="身份证号码" name="idcard">
+                        </div>
+                    </li>
+                </ul>
+                <div class="readMe">
+                    <input type="checkbox" name="" id="">
+                    <span>我已阅读并同意 99yx.com</span>
+                    <a href="#">《用户协议》</a>
+                </div>
+            </form>
+            <button class="submitBtn" id="register"> 完成注册</button>
         </div>
         <div class="right">
             <div class="loginText">

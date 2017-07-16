@@ -3,6 +3,7 @@ package cn.classwork.service.impl;
 import java.sql.SQLException;
 
 import cn.classwork.base.BaseService;
+import cn.classwork.entity.User;
 import cn.classwork.service.UserService;
 
 public class UserServiceImpl extends BaseService implements UserService{
@@ -16,6 +17,11 @@ public class UserServiceImpl extends BaseService implements UserService{
 			break;
 		}
 		return false;
+	}
+
+	@Override
+	public void saveUser(User user) {
+		userDao.save(user);
 	}
 
 }

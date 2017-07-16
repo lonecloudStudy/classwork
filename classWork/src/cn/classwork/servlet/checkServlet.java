@@ -21,7 +21,7 @@ public class checkServlet extends BaseServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//获取校验的名字
 		String type=req.getParameter("type");
-		String value=req.getParameter("type");
+		String value=req.getParameter("value");
 		if (StringUtils.isNotNullAndBlank(type)) {
 			try {
 				boolean checkType = userService.checkType(type,value);
@@ -32,6 +32,8 @@ public class checkServlet extends BaseServlet {
 				e.printStackTrace();
 				JsonMsgUtils.errorMsg("系统错误", resp);
 			}
+		}else{
+			JsonMsgUtils.errorMsg("“输入错误", resp);
 		}
 	}
 }

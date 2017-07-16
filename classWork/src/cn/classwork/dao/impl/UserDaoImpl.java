@@ -9,12 +9,14 @@ import cn.classwork.entity.User;
 import cn.classwork.util.DBUtils;
 
 public class UserDaoImpl implements UserDao {
-	
-	static final String TABLENAME="tbl_user";
+
+	static final String TABLENAME = " tbl_user ";
 
 	@Override
 	public User save(User entity) {
-		return null;
+		String sql = "insert into " + TABLENAME + "(username,password,email,fullname,idcard,registertime,registerIp) values(?,?,?,?,?,?,?)";
+		DBUtils.execute(sql, entity.getUsername(),entity.getPassword(),entity.getEmail(),entity.getIdcard(),entity.getRegistertime(),entity.getRegisterIp());
+		return entity;
 	}
 
 	@Override
@@ -39,9 +41,10 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public boolean checkUser(String username) throws SQLException {
-		String sql="select username from "+TABLENAME+"where username= ?";
+		String sql = "select username from " + TABLENAME + "where username = ?";
+		System.out.println(sql);
 		ResultSet resultSet = DBUtils.Query(sql, username);
-		if (resultSet.next()) {
+		if (resultSet != null && resultSet.next()) {
 			return true;
 		}
 		return false;
