@@ -26,7 +26,7 @@ $(function(){
         data: {
         },
         success: function (data) {
-            $("#id").val(data.id);
+            $(".id").val(data.id);
             $(".user_name").html(data.username);
             $("#lastLoginTime").html(data.logintime);
             $("#user_email").html(data.email);
@@ -45,11 +45,32 @@ $(function(){
                 if(SUCCESS==data.code){
                     alert(data.message);
                     location.reload();
+                }else{
+                	alert(data.message);
                 }
             },
             error: function () {
                 alert("请求失败")
             }
         });
-    })
+    });
+    $("#pwdSubmit").click(function(){
+    	$.ajax({
+            url: "changePwd",
+            dataType: "json",
+            type: "POST",
+            data:$("#changePass").serialize(),
+            success: function (data) {
+                if(SUCCESS==data.code){
+                    alert(data.message);
+                    location.reload();
+                }else{
+                	alert(data.message);
+                }
+            },
+            error: function () {
+                alert("请求失败")
+            }
+        });
+    });
 });

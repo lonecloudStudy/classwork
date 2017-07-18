@@ -2,7 +2,6 @@
  * Created by lonecloud on 2017/7/17.
  */
 $(document).ready(function() {
-
 	$.jgrid.defaults.styleUI = 'Bootstrap';
 	var mydata = {};
 	$.ajax({
@@ -31,7 +30,7 @@ $(document).ready(function() {
 			shrinkToFit : true,
 			rowNum : 20,
 			rowList : [ 10, 20, 30 ],
-			colNames : [ 'id', '名字', '全名', '电子邮件', '性别', 'QQ', '电话' ],
+			colNames : [ 'id', '用户名', '真实姓名', '电子邮件', '性别', 'QQ', '电话' ],
 			colModel : [ {
 				name : 'id',
 				index : 'id',
@@ -87,15 +86,18 @@ $(document).ready(function() {
 		// Add selection
 		$("#table_list_2").setSelection(4, true);
 
-		// Setup buttons
+//		 Setup buttons
 		$("#table_list_2").jqGrid('navGrid', '#pager_list_2', {
 			edit : true,
 			add : true,
 			del : true,
-			search : true
+			search : true,
+			addfunc : addDig,
+			editfunc : editDig,
+			delfunc : delDig
 		}, {
 			height : 200,
-			reloadAfterSubmit : true
+			reloadAfterSubmit : true,
 		});
 
 		// Add responsive to jqGrid
@@ -104,4 +106,34 @@ $(document).ready(function() {
 			$('#table_list_2').setGridWidth(width);
 		});
 	}
+	function addDig(){
+		$(".modal-title").html("新增用户");
+		$("#commit").click(function(){
+			$.ajax({
+				url : "addUser",
+				dataType : "json",
+				type : "POST",
+				data : $("#userForm").serialize(),
+				success : function(data) {
+					if (ERROR != data.code) {
+                        alert("保存成功！");
+						location.reload();
+					} else {
+						alert("保存失败！")
+					}
+				},
+				error : function() {
+					alert("请求失败")
+				}
+			});
+		});
+		$('#mymadel').modal({
+			  keyboard: false
+			})
+	}
+	function editDig(){
+	}
+	function delDig(){
+	}
+	
 });

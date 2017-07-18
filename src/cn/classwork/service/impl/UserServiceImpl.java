@@ -1,6 +1,7 @@
 package cn.classwork.service.impl;
 
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 import cn.classwork.base.BaseService;
@@ -31,7 +32,7 @@ public class UserServiceImpl extends BaseService implements UserService {
 	}
 
 	@Override
-	public User updateUser(User user) {
+	public User updateUser(User user) throws Exception {
 		// 查询数据库中数据
 		User user2 = userDao.findById(user.getId());
 		if (user2 != null) {
@@ -76,10 +77,10 @@ public class UserServiceImpl extends BaseService implements UserService {
 					source.setAddress(target.getAddress());
 				}
 			}
-			// 判断电话不为空
+			// 判断密码不为空
 			if (target.getPassword()!=null) {
 				if (source.getPassword() != null && source.getPassword().equals(target.getPassword())) {
-					// 设置新的电话号码
+					// 设置新的密码
 					source.setPassword(target.getPassword());
 				}
 			}
@@ -90,6 +91,31 @@ public class UserServiceImpl extends BaseService implements UserService {
 	@Override
 	public List<User> findAllUser() throws Exception {
 		return userDao.findAll();
+	}
+
+	@Override
+	public void deleteUserById(String idStr) {
+		if (idStr!=null) {
+			int id = Integer.parseInt(idStr);
+			userDao.deleteById(id);
+		}
+		
+	}
+
+	@Override
+	public void addUser(User user) {
+		//设置默认密码
+		user.setPassword("123456");
+		//设置注册时间
+		user.setRegistertime(new Date());
+		//设置登录时间
+		user.setLogintime(new Date());
+		userDao.addUser(user);
+	}
+
+	@Override
+	public void updatePwd(String repasswd) {
+		
 	}
 
 }

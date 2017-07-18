@@ -13,7 +13,14 @@ import cn.classwork.dto.JsonMessage;
 import cn.classwork.service.UserService;
 import cn.classwork.util.JsonMsgUtils;
 import cn.classwork.util.StringUtils;
-
+/**
+ * 检查用户名可用
+ * @Title: CheckServlet.java
+ * @Package cn.classwork.servlet
+ * @author lonecloud
+ * @date 2017年7月18日 下午6:46:48
+ * @version V1.0
+ */
 @WebServlet("/checkUser")
 public class CheckServlet extends BaseServlet {
 

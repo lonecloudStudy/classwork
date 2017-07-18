@@ -25,23 +25,25 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 	@Override
 	public void update(User entity) {
 		String sql = "update " + TABLENAME + "set " + "tel = ?, nickname= ?,sex =?,qq =?,address= ? where id = ?";
-		DBUtils.execute(sql, entity.getTel(), entity.getNickname(), entity.getQq(), entity.getAddress(),
+		DBUtils.execute(sql, entity.getTel(), entity.getNickname(),entity.getSex(), entity.getQq(), entity.getAddress(),
 				entity.getId());
 	}
 
 	@Override
 	public void deleteById(int id) {
-
+		String sql = "delete from" + TABLENAME + "where id = ?";
+		DBUtils.execute(sql, id);
 	}
 
 	@Override
-	public User findById(int id) {
-		return null;
+	public User findById(int id) throws Exception {
+		ResultSet resultSet = DBUtils.Query("select * from "+TABLENAME+"where id = ?", id);
+		return coverUser(resultSet);
 	}
 
 	@Override
 	public List<User> findAll() throws Exception {
-		String sql="select * from "+TABLENAME;
+		String sql = "select * from " + TABLENAME;
 		ResultSet resultSet = DBUtils.Query(sql);
 		return coverAllUser(resultSet);
 	}
@@ -66,6 +68,15 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 			return coverUser(resultSet);
 		}
 		return null;
+	}
+
+	@Override
+	public void addUser(User user) {
+		String sql = "insert into " + TABLENAME
+				+ "(username,password,email,fullname,idcard,registertime,registerIp,loginTime,tel,nickname,qq,sex,address) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		DBUtils.execute(sql, user.getUsername(), user.getPassword(), user.getEmail(), user.getFullname(),
+				user.getIdcard(), user.getRegistertime(), user.getRegisterIp(),user.getLogintime(), user.getTel(), user.getNickname(),
+				user.getQq(), user.getSex(), user.getAddress());
 	}
 
 }

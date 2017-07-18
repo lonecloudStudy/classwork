@@ -59,6 +59,7 @@ public class DBUtils {
 			for (int i = 0; i < params.length; i++) {
 				prepareStatement.setObject(i + 1, params[i]);
 			}
+			System.out.println("sql--"+sql);
 			resultSet = prepareStatement.executeQuery();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -74,6 +75,7 @@ public class DBUtils {
 			for (int i = 0; i < params.length; i++) {
 				prepareStatement.setObject(i + 1, params[i]);
 			}
+			System.out.println("sql--"+sql);
 			prepareStatement.executeUpdate();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

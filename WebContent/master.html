@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/master.css">
     <link rel="stylesheet" href="css/topline.css">
-    <link rel="stylesheet" href="css/ui.jqgrid.css" >
+    <link rel="stylesheet" href="css/ui.jqgrid.css">
 </head>
 <body>
 <div id="top">
@@ -37,12 +37,18 @@
         </div>
         <div class="menu_index">
             <ul class="menu_index_ul">
-            <li><a href="index.html"><b>首页</b><br/><span>HOME</span></a></li>
-            <li><a href="gameshall.html"><b>游戏大厅</b><br/><span>GAMES</span></a></li>
-            <li><a href="master.html"><b>用户管理</b><br/><span>MASTER</span></a></li>
-            <li><a href="member.html"><b>用户中心</b><br/><span>MEMBER</span></a></li>
-            <li><a href="service.html"><b>客服中心</b><br/><span>SERVICE</span></a></li>
-            <li><a href="logout"><b>注销</b><br/><span>CANCEL</span></a></li>
+                <li><a href="index.html"><b>首页</b><br/>
+                    <span>HOME</span></a></li>
+                <li><a href="gameshall.html"><b>游戏大厅</b><br/>
+                    <span>GAMES</span></a></li>
+                <li><a href="master.html"><b>用户管理</b><br/>
+                    <span>MASTER</span></a></li>
+                <li><a href="member.html"><b>用户中心</b><br/>
+                    <span>MEMBER</span></a></li>
+                <li><a href="service.html"><b>客服中心</b><br/>
+                    <span>SERVICE</span></a></li>
+                <li><a href="logout"><b>注销</b><br/>
+                    <span>CANCEL</span></a></li>
             </ul>
         </div>
     </div>
@@ -53,6 +59,61 @@
         <div id="pager_list_2"></div>
     </div>
 </div>
+<div class="modal fade" tabindex="-1" role="dialog" id="mymadel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">用户</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" id="userForm">
+                    <div class="form-group">
+                        <label for="username" class="col-sm-2 control-label">用户名</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="username" placeholder="用户名" name="username">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="col-sm-2 control-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="email" placeholder="电子邮件" name="email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="sex" class="col-sm-2 control-label">性别</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="sex" placeholder="性别" name="sex">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="qq" class="col-sm-2 control-label">QQ</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="qq" placeholder="QQ" name="qq">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tel" class="col-sm-2 control-label">电话</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="tel" placeholder="电话" name="tel">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="commit">提交</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
 <!-- 全局js -->
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>

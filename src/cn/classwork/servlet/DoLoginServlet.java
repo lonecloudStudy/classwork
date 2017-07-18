@@ -13,7 +13,14 @@ import cn.classwork.base.BaseServlet;
 import cn.classwork.entity.User;
 import cn.classwork.util.JsonMsgUtils;
 import cn.classwork.util.StringUtils;
-
+/**
+ * 校验登录
+ * @Title: DoLoginServlet.java
+ * @Package cn.classwork.servlet
+ * @author lonecloud
+ * @date 2017年7月18日 下午6:47:05
+ * @version V1.0
+ */
 @WebServlet("/doLogin")
 public class DoLoginServlet extends BaseServlet {
 

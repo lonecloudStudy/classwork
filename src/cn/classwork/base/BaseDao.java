@@ -26,8 +26,9 @@ public interface BaseDao<T> extends Serializable {
 	 * 根据Id查找
 	 * @param id
 	 * @return
+	 * @throws Exception 
 	 */
-	T findById(int id);
+	T findById(int id) throws Exception;
 	/**
 	 * 查找全部
 	 * @return
