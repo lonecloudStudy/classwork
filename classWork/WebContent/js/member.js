@@ -18,3 +18,38 @@ function changeBar(index) {
         changePwd.className="";
     }
 }
+$(function(){
+	$.ajax({
+        url: "getUser",
+        dataType: "json",
+        type: "GET",
+        data: {
+        },
+        success: function (data) {
+            $("#id").val(data.id);
+            $(".user_name").html(data.username);
+            $("#lastLoginTime").html(data.logintime);
+            $("#user_email").html(data.email);
+        },
+        error: function () {
+            alert("请求失败")
+        }
+    });
+    $("#submitInfo").click(function () {
+        $.ajax({
+            url: "updateUserInfo",
+            dataType: "json",
+            type: "POST",
+            data:$("#infoForm").serialize(),
+            success: function (data) {
+                if(SUCCESS==data.code){
+                    alert(data.message);
+                    location.reload();
+                }
+            },
+            error: function () {
+                alert("请求失败")
+            }
+        });
+    })
+});

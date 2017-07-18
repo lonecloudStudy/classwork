@@ -52,6 +52,9 @@ public class DBUtils {
 	public static ResultSet Query(String sql, Object... params) {
 		ResultSet resultSet = null;
 		try {
+			if (params==null) {
+				params=new Object[0];
+			}
 			PreparedStatement prepareStatement = getConnection().prepareStatement(sql);
 			for (int i = 0; i < params.length; i++) {
 				prepareStatement.setObject(i + 1, params[i]);

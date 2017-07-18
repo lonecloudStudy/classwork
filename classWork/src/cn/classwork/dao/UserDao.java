@@ -8,4 +8,6 @@ import cn.classwork.entity.User;
 public interface UserDao extends BaseDao<User>{
 
 	boolean checkUser(String username) throws SQLException;
+
+	User checkLogin(String username, String password) throws  Exception;
 }

@@ -15,7 +15,7 @@ import cn.classwork.util.JsonMsgUtils;
 import cn.classwork.util.StringUtils;
 
 @WebServlet("/checkUser")
-public class checkServlet extends BaseServlet {
+public class CheckServlet extends BaseServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

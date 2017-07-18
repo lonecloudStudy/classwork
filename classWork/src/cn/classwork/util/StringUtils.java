@@ -13,4 +13,18 @@ public class StringUtils {
 	public static boolean isNotNullAndBlank(String str){
 		return !isNullOrBlank(str);
 	}
+	/**
+	 * 判断是不是所有字符串为空
+	 * @Description: 
+	 * @param strings
+	 * @return
+	 */
+	public static boolean isAllNotNull(String... strings){
+		for (String string : strings) {
+			if(isNullOrBlank(string)){
+				return false;
+			}
+		}
+		return true;
+	}
 }

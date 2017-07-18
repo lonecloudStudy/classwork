@@ -4,8 +4,9 @@ $(function () {
     $("#register").click(function () {
     	checkUserName();
         $.ajax({
-            url: "registerUser",
+            url: "register",
             type: "POST",
+            dataType: "json", 
             data: $("#registerForm").serialize(),
             success: function (data) {
                 if (SUCCESS = data.code) {
@@ -23,6 +24,7 @@ $(function () {
     	$.ajax({
             url: "checkUser",
             type: "POST",
+            dataType: "json", 
             data: {
                 type: "username",
                 value: $("#username").val()

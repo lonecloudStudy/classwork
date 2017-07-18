@@ -31,6 +31,7 @@ public interface BaseDao<T> extends Serializable {
 	/**
 	 * 查找全部
 	 * @return
+	 * @throws Exception 
 	 */
-	List<T> findAll();
+	List<T> findAll() throws Exception;
 }
