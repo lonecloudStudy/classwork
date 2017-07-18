@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import cn.classwork.base.BaseServlet;
+import cn.classwork.util.JsonMsgUtils;
 /**
  * 管理员删除用户
  * @Title: DelUserServlet.java
@@ -20,6 +21,13 @@ public class DelUserServlet extends BaseServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		userService.deleteUserById(req.getParameter("id"));
+		try {
+			userService.deleteUserById(req.getParameter("id"));
+			JsonMsgUtils.successMsg("删除成功", resp);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			JsonMsgUtils.errorMsg("删除失败", resp);
+		}
 	}
 }

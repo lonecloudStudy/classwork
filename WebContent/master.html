@@ -37,18 +37,12 @@
         </div>
         <div class="menu_index">
             <ul class="menu_index_ul">
-                <li><a href="index.html"><b>首页</b><br/>
-                    <span>HOME</span></a></li>
-                <li><a href="gameshall.html"><b>游戏大厅</b><br/>
-                    <span>GAMES</span></a></li>
-                <li><a href="master.html"><b>用户管理</b><br/>
-                    <span>MASTER</span></a></li>
-                <li><a href="member.html"><b>用户中心</b><br/>
-                    <span>MEMBER</span></a></li>
-                <li><a href="service.html"><b>客服中心</b><br/>
-                    <span>SERVICE</span></a></li>
-                <li><a href="logout"><b>注销</b><br/>
-                    <span>CANCEL</span></a></li>
+                <li><a href="index.html"><b>首页</b><br/> <span>HOME</span></a></li>
+                <li><a href="gameshall.html"><b>游戏大厅</b><br/> <span>GAMES</span></a></li>
+                <li><a href="master.html"><b>用户管理</b><br/> <span>MASTER</span></a></li>
+                <li><a href="member.html"><b>用户中心</b><br/> <span>MEMBER</span></a></li>
+                <li><a href="service.html"><b>客服中心</b><br/> <span>SERVICE</span></a></li>
+                <li><a href="logout"><b>注销</b><br/> <span>CANCEL</span></a></li>
             </ul>
         </div>
     </div>
@@ -71,34 +65,48 @@
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" id="userForm">
+                	<input type="hidden" name="id" id="id">
                     <div class="form-group">
-                        <label for="username" class="col-sm-2 control-label">用户名</label>
+                        <label for="username" class="col-sm-2 control-label">登录名</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="username" placeholder="用户名" name="username">
+                            <input type="text" class="form-control" id="username"
+                                   placeholder="登录名" name="username">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="fullname" class="col-sm-2 control-label">真实姓名</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="fullname"
+                                   placeholder="真实姓名" name="fullname">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="email" class="col-sm-2 control-label">Email</label>
                         <div class="col-sm-10">
-                            <input type="email" class="form-control" id="email" placeholder="电子邮件" name="email">
+                            <input type="email" class="form-control" id="email"
+                                   placeholder="电子邮件" name="email">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="sex" class="col-sm-2 control-label">性别</label>
+                        <label  class="col-sm-2 control-label">性别</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="sex" placeholder="性别" name="sex">
+                            <input type="radio" name="sex" value="男" >
+                            男 <input name="sex" type="radio" value="女"
+                                     > 女 <input name="sex" type="radio" value="保密"> 保密
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="qq" class="col-sm-2 control-label">QQ</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="qq" placeholder="QQ" name="qq">
+                            <input type="text" class="form-control" id="qq" placeholder="QQ"
+                                   name="qq">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="tel" class="col-sm-2 control-label">电话</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="tel" placeholder="电话" name="tel">
+                            <input type="text" class="form-control" id="tel"
+                                   placeholder="电话" name="tel">
                         </div>
                     </div>
                 </form>

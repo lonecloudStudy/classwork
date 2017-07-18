@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import cn.classwork.base.BaseServlet;
 import cn.classwork.entity.User;
+import cn.classwork.util.JsonMsgUtils;
 /**
  * 管理员更新用户信息
  * @Title: UpdateUserServlet.java
@@ -24,9 +25,11 @@ public class UpdateUserServlet extends BaseServlet {
 		try {
 			User user = coverObj(User.class, req);
 			userService.updateUser(user);
+			JsonMsgUtils.successMsg("更新成功", resp);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			JsonMsgUtils.errorMsg("更新失败", resp);
 		}
 	}
 }
