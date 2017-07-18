@@ -16,17 +16,17 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 	@Override
 	public User save(User entity) {
 		String sql = "insert into " + TABLENAME
-				+ "(username,password,email,fullname,idcard,registertime,registerIp) values(?,?,?,?,?,?,?)";
+				+ "(username,password,email,fullname,idcard,registertime,loginTime,registerIp) values(?,?,?,?,?,?,?,?)";
 		DBUtils.execute(sql, entity.getUsername(), entity.getPassword(), entity.getEmail(), entity.getFullname(),
-				entity.getIdcard(), entity.getRegistertime(), entity.getRegisterIp());
+				entity.getIdcard(), entity.getRegistertime(), entity.getLogintime(), entity.getRegisterIp());
 		return entity;
 	}
 
 	@Override
 	public void update(User entity) {
 		String sql = "update " + TABLENAME + "set " + "tel = ?, nickname= ?,sex =?,qq =?,address= ? where id = ?";
-		DBUtils.execute(sql, entity.getTel(), entity.getNickname(),entity.getSex(), entity.getQq(), entity.getAddress(),
-				entity.getId());
+		DBUtils.execute(sql, entity.getTel(), entity.getNickname(), entity.getSex(), entity.getQq(),
+				entity.getAddress(), entity.getId());
 	}
 
 	@Override
@@ -37,8 +37,12 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 
 	@Override
 	public User findById(int id) throws Exception {
-		ResultSet resultSet = DBUtils.Query("select * from "+TABLENAME+"where id = ?", id);
-		return coverUser(resultSet);
+		ResultSet resultSet = DBUtils.Query("select * from " + TABLENAME + "where id = ?", id);
+		if(resultSet.next()){
+			return coverUser(resultSet);
+		}else{
+			return null;
+		}
 	}
 
 	@Override
@@ -75,8 +79,8 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 		String sql = "insert into " + TABLENAME
 				+ "(username,password,email,fullname,idcard,registertime,registerIp,loginTime,tel,nickname,qq,sex,address) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		DBUtils.execute(sql, user.getUsername(), user.getPassword(), user.getEmail(), user.getFullname(),
-				user.getIdcard(), user.getRegistertime(), user.getRegisterIp(),user.getLogintime(), user.getTel(), user.getNickname(),
-				user.getQq(), user.getSex(), user.getAddress());
+				user.getIdcard(), user.getRegistertime(), user.getRegisterIp(), user.getLogintime(), user.getTel(),
+				user.getNickname(), user.getQq(), user.getSex(), user.getAddress());
 	}
 
 }

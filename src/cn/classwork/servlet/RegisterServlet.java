@@ -47,7 +47,7 @@ public class RegisterServlet extends BaseServlet {
 		user.setFullname(request.getParameter("fullname"));
 		user.setRegisterIp(request.getRemoteAddr());
 		user.setRegistertime(new Date());
-		user.setLogintime(null);
+		user.setLogintime(new Date());
 		return user;
 	}
 }

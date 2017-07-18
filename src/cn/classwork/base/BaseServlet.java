@@ -22,7 +22,7 @@ public class BaseServlet extends HttpServlet {
 			field.setAccessible(true);
 			String str = request.getParameter(field.getName());
 			if (str != null) {
-				if (field.getName().equals("id")) {
+				if (field.getName().equals("id")&&!str.equals("")) {
 					field.set(t, Integer.parseInt(str));
 				} else {
 					field.set(t, request.getParameter(field.getName()));

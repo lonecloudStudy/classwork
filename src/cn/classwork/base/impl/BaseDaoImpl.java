@@ -31,15 +31,13 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 	 * @throws Exception
 	 */
 	protected T coverUser(ResultSet resultSet) throws Exception {
-		if (resultSet.next()) {
-			return bulidObject(resultSet);
-			
-		}
-		return null;
+		return bulidObject(resultSet);
 	}
+
 	/**
 	 * 将结果集组装成List
-	 * @Description: 
+	 * 
+	 * @Description:
 	 * @param resultSet
 	 * @return
 	 * @throws Exception

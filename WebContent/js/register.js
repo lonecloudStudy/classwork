@@ -2,7 +2,8 @@ var SUCCESS = "success";
 var ERROR = "error";
 $(function () {
     $("#register").click(function () {
-    	checkUserName();
+    	//校验数据正确性
+    	
         $.ajax({
             url: "register",
             type: "POST",
