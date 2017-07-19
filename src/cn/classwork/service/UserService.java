@@ -63,6 +63,6 @@ public interface UserService{
 	 * @Description: 
 	 * @param pwd
 	 */
-	void updatePwd(String pwd);
+	void updatePwd(int id,String pwd);
 
 }

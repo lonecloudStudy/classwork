@@ -1,6 +1,7 @@
 package cn.classwork.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Date;
 
 import javax.servlet.ServletException;
@@ -20,12 +21,22 @@ public class RegisterServlet extends BaseServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		User user = coverUser(request);
+		String username = request.getParameter("username");
 		try {
-			userService.saveUser(user);
-			JsonMsgUtils.successMsg("注册成功", response);
-		} catch (Exception e) {
-			JsonMsgUtils.errorMsg("系统错误", response);
+			if(username!=null&&userService.checkType("username", username)){
+				User user = coverUser(request);
+				try {
+					userService.saveUser(user);
+					JsonMsgUtils.successMsg("注册成功", response);
+				} catch (Exception e) {
+					JsonMsgUtils.errorMsg("系统错误", response);
+					e.printStackTrace();
+				}
+			}else{
+				JsonMsgUtils.errorMsg("用户名不能为空", response);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

@@ -1,3 +1,11 @@
+.menu{
+	width:auto;
+}
+.menuContent{
+	height:70px;
+	width:1024px;
+	margin:0px auto;
+}
 #hall {
 
     height: 445px;
@@ -97,10 +105,10 @@ height: 31px;
 dl{
     background: white;
 }
-/*游戏大厅上半部分四位人物图片结束*/
+/*娓告垙澶у巺涓婂崐閮ㄥ垎鍥涗綅浜虹墿鍥剧墖缁撴潫*/
 
 
-/*游戏大厅下半部分开始*/
+/*娓告垙澶у巺涓嬪崐閮ㄥ垎寮�濮�*/
 #choose{
     width: 1000px;
     margin: 0 auto;
@@ -242,4 +250,4 @@ dl{
 display: block;
 }
 
-/*游戏大厅下半部分end*/
+/*娓告垙澶у巺涓嬪崐閮ㄥ垎end*/

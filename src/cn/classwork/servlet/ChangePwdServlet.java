@@ -33,7 +33,7 @@ public class ChangePwdServlet extends BaseServlet{
 				JsonMsgUtils.errorMsg("原密码错误", resp);
 			}else{
 				if (oldPwd!=null&&repasswd!=null&&repasswd.equals(confirm)) {
-					userService.updatePwd(repasswd);
+					userService.updatePwd(user.getId(),repasswd);
 					JsonMsgUtils.successMsg("密码修改成功", resp);
 				}
 			}

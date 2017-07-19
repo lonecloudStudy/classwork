@@ -1,5 +1,11 @@
 package cn.classwork.dto;
-
+/**
+ * json数据封装
+ * @Title: JsonMessage.java
+ * @Package cn.classwork.dto
+ * @date 2017年7月19日 上午12:07:05
+ * @version V1.0
+ */
 public class JsonMessage {
 	
 	public final static String SUCCESS="success";

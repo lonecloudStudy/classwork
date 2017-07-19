@@ -24,8 +24,8 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 
 	@Override
 	public void update(User entity) {
-		String sql = "update " + TABLENAME + "set " + "tel = ?, nickname= ?,sex =?,qq =?,address= ? where id = ?";
-		DBUtils.execute(sql, entity.getTel(), entity.getNickname(), entity.getSex(), entity.getQq(),
+		String sql = "update " + TABLENAME + "set " + "tel = ?, fullname= ?,username=?,sex =?,qq =?,address= ? where id = ?";
+		DBUtils.execute(sql, entity.getTel(), entity.getFullname(),entity.getUsername(), entity.getSex(), entity.getQq(),
 				entity.getAddress(), entity.getId());
 	}
 
@@ -38,9 +38,9 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 	@Override
 	public User findById(int id) throws Exception {
 		ResultSet resultSet = DBUtils.Query("select * from " + TABLENAME + "where id = ?", id);
-		if(resultSet.next()){
+		if (resultSet.next()) {
 			return coverUser(resultSet);
-		}else{
+		} else {
 			return null;
 		}
 	}
@@ -58,9 +58,9 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 		System.out.println(sql);
 		ResultSet resultSet = DBUtils.Query(sql, username);
 		if (resultSet != null && resultSet.next()) {
-			return true;
+			return false;
 		}
-		return false;
+		return true;
 	}
 
 	@Override
@@ -81,6 +81,12 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 		DBUtils.execute(sql, user.getUsername(), user.getPassword(), user.getEmail(), user.getFullname(),
 				user.getIdcard(), user.getRegistertime(), user.getRegisterIp(), user.getLogintime(), user.getTel(),
 				user.getNickname(), user.getQq(), user.getSex(), user.getAddress());
+	}
+
+	@Override
+	public void updatePwd(int id, String pwd) {
+		String sql = "update " + TABLENAME + "set password = ? where id = ?";
+		DBUtils.execute(sql, pwd, id);
 	}
 
 }

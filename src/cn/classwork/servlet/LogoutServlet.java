@@ -23,6 +23,6 @@ public class LogoutServlet extends BaseServlet{
 		//清除session中的user变量
 		req.getSession().setAttribute("user", null);
 		//将页面重定向到登录页面
-		resp.sendRedirect("login.html");
+		resp.sendRedirect("index.html");
 	}
 }
