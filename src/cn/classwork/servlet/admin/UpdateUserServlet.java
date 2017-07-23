@@ -23,11 +23,10 @@ public class UpdateUserServlet extends BaseServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			User user = coverObj(User.class, req);
-			userService.updateUser(user);
+			User user = coverObj(User.class, req);//封装数据
+			userService.updateUser(user);//更新用户
 			JsonMsgUtils.successMsg("更新成功", resp);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			JsonMsgUtils.errorMsg("更新失败", resp);
 		}

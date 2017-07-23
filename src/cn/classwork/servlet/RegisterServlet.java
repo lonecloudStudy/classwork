@@ -14,19 +14,26 @@ import org.apache.catalina.connector.Request;
 import cn.classwork.base.BaseServlet;
 import cn.classwork.entity.User;
 import cn.classwork.util.JsonMsgUtils;
-
+/**
+ * 注册界面servlet
+ * @Title: RegisterServlet.java
+ * @Package cn.classwork.servlet
+ * @author lonecloud
+ * @date 2017年7月23日 上午11:09:36
+ * @version V1.0
+ */
 @WebServlet("/register")
 public class RegisterServlet extends BaseServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String username = request.getParameter("username");
+		String username = request.getParameter("username");//获取参数
 		try {
-			if(username!=null&&userService.checkType("username", username)){
-				User user = coverUser(request);
+			if(username!=null&&userService.checkType("username", username)){//判断用户名是否被使用
+				User user = coverUser(request);//封装用户
 				try {
-					userService.saveUser(user);
+					userService.saveUser(user);//保存用户给数据库
 					JsonMsgUtils.successMsg("注册成功", response);
 				} catch (Exception e) {
 					JsonMsgUtils.errorMsg("系统错误", response);

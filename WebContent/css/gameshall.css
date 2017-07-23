@@ -38,6 +38,8 @@ h2 {
 .hall_img {
     float: left;
     display: inline-block;
+    width: 242px;
+    margin-right: 6px;
 }
 
 .img_box {
@@ -181,7 +183,7 @@ dl{
 }
 .picture_box{
     border: 1px solid #dddddd;
-    height: 124px;
+    height: 130px;
     width: 232px;
     display: inline-block;
     font-size: 5px;

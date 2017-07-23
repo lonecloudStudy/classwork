@@ -5,7 +5,12 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/**
+ * servlet操作类
+ * @Title: ServletUtils.java
+ * @Package cn.classwork.util
+ * @version V1.0
+ */
 public class ServletUtils {
 
 	private static final String PREFIX = "/WEB-INF/pages";

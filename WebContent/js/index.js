@@ -42,7 +42,7 @@ function changeImg() {
 	if (index == 5) {
 		index = 1;
 	}
-	document.getElementById("img_banner").className = "login" + " img" + index;
+	document.getElementById("img_banner").className = "login" + " img" + index;//
 	// li的样式发生变化
 	var lis = document.getElementById("indexUl").getElementsByTagName("li");
 	for (var i = 0; i < lis.length; i++) {
@@ -50,14 +50,23 @@ function changeImg() {
 	}
 	lis[index - 1].className = "lightblue";
 }
+/**
+ * 鼠标在div的框框的时间
+ */
 var intervalId = setInterval(changeImg, 2000);
 function stop_play() {
+	//清除定时器
 	clearInterval(intervalId);
 	intervalId = null;
 }
+/**
+ * 鼠标不在div时候的时间
+ * @returns
+ */
 function play() {
 	if (intervalId == null) {
-		intervalId = setInterval(changeImg, 2000);
+		//设置了一个定时器
+		intervalId = setInterval(changeImg, 2000);//参数1调用函数，2为时间
 	}
 
 }

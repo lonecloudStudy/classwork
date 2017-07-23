@@ -9,7 +9,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.classwork.base.BaseDao;
-
+/**
+ * 基础的dao层
+ * @Title: BaseDaoImpl.java
+ * @Package cn.classwork.base.impl
+ * @author lonecloud
+ * @version V1.0
+ * @param <T>
+ */
 public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 
 	Class<T> entityClass = null;

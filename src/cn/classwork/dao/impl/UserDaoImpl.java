@@ -8,7 +8,12 @@ import cn.classwork.base.impl.BaseDaoImpl;
 import cn.classwork.dao.UserDao;
 import cn.classwork.entity.User;
 import cn.classwork.util.DBUtils;
-
+/**
+ * 用户的dao的实现类
+ * @Title: UserDaoImpl.java
+ * @Package cn.classwork.dao.impl
+ * @version V1.0
+ */
 public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 
 	static final String TABLENAME = " tbl_user ";
@@ -24,8 +29,8 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 
 	@Override
 	public void update(User entity) {
-		String sql = "update " + TABLENAME + "set " + "tel = ?, fullname= ?,username=?,sex =?,qq =?,address= ? where id = ?";
-		DBUtils.execute(sql, entity.getTel(), entity.getFullname(),entity.getUsername(), entity.getSex(), entity.getQq(),
+		String sql = "update " + TABLENAME + "set " + "tel = ?, email=?,fullname= ?,nickname=?,username=?,sex =?,qq =?,address= ? where id = ?";
+		DBUtils.execute(sql, entity.getTel(),entity.getEmail(), entity.getFullname(),entity.getNickname(),entity.getUsername(), entity.getSex(), entity.getQq(),
 				entity.getAddress(), entity.getId());
 	}
 

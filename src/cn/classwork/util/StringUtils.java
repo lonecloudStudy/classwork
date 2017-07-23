@@ -1,5 +1,10 @@
 package cn.classwork.util;
-
+/**
+ * String 工具类
+ * @Title: StringUtils.java
+ * @Package cn.classwork.util
+ * @version V1.0
+ */
 public class StringUtils {
 	/**
 	 * 判断字符串是不是空或者空字符串

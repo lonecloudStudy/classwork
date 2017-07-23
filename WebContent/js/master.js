@@ -3,14 +3,16 @@
  */
 $(document).ready(
 		function() {
+			//以下代码就是动态生成数据表的代码
 			$.jgrid.defaults.styleUI = 'Bootstrap';
 			var mydata = {};
+			//获取所有的用户
 			$.ajax({
 				url : "getAllUser",
 				dataType : "json",
 				type : "GET",
 				data : {},
-				success : function(data) {
+				success : function(data) {//成功返回函数
 					if (ERROR != data.code) {
 						mydata = data;
 						dataBind();
@@ -22,8 +24,9 @@ $(document).ready(
 					alert("请求失败")
 				}
 			});
-			function dataBind() {
-				$("#table_list_2").jqGrid(
+			function dataBind() {//数据绑定
+				$("#table_list_2").jqGrid(//数据表初始化函数
+						
 						{
 							data : mydata,
 							datatype : "local",
@@ -32,8 +35,8 @@ $(document).ready(
 							shrinkToFit : true,
 							rowNum : 20,
 							rowList : [ 10, 20, 30 ],
-							colNames : [ 'id', '用户名', '真实姓名', '电子邮件', '性别',
-									'QQ', '电话' ],
+							colNames : [ 'id', '用户名', '真实姓名','昵称', '电子邮件', '性别',
+									'QQ', '电话','地址' ],
 							colModel : [ {
 								name : 'id',
 								index : 'id',
@@ -45,17 +48,22 @@ $(document).ready(
 								name : 'username',
 								index : 'username',
 								editable : true,
-								width : 40,
+								width : 30,
 							}, {
 								name : 'fullname',
 								index : 'fullname',
 								editable : true,
-								width : 50
-							}, {
+								width : 30
+							},  {
+								name : 'nickname',
+								index : 'nickname',
+								editable : true,
+								width : 30
+							},{
 								name : 'email',
 								index : 'email',
 								editable : true,
-								width : 60,
+								width : 50,
 								align : "right",
 							}, {
 								name : 'sex',
@@ -73,7 +81,13 @@ $(document).ready(
 								name : 'tel',
 								index : 'tel',
 								editable : true,
-								width : 60,
+								width : 50,
+								sortable : false
+							}, {
+								name : 'address',
+								index : 'address',
+								editable : true,
+								width : 50,
 								sortable : false
 							} ],
 							pager : "#pager_list_2",
@@ -109,10 +123,13 @@ $(document).ready(
 					$('#table_list_2').setGridWidth(width);
 				});
 			}
-
+			/**
+			 * 添加显示框
+			 * @returns
+			 */
 			function addDig() {
-				$(".modal-title").html("新增用户");
-				$("#commit").click(function() {
+				$(".modal-title").html("新增用户");//标题行
+				$("#commit").click(function() {//提交按钮
 					$.ajax({
 						url : "addUser",
 						dataType : "json",
@@ -131,11 +148,14 @@ $(document).ready(
 						}
 					});
 				});
-				$('#mymadel').modal({
+				$('#mymadel').modal({//显示框
 					keyboard : false
 				});
 			}
-
+			/**
+			 * 编辑按钮弹出函数
+			 * @returns
+			 */
 			function editDig() {
 				$(".modal-title").html("修改用户");
 				var selectedRowId = $("#table_list_2").jqGrid("getGridParam",
@@ -152,10 +172,12 @@ $(document).ready(
 					consoleDlg.find("#id").val(rowData.id);
 					consoleDlg.find("#username").val(rowData.username);
 					consoleDlg.find("#fullname").val(rowData.fullname);
+					consoleDlg.find("#nickname").val(rowData.nickname);
 					consoleDlg.find("#email").val(rowData.email);
 					consoleDlg.find(".sex").val(rowData.sex);
 					consoleDlg.find("#qq").val(rowData.qq);
 					consoleDlg.find("#tel").val(rowData.tel);
+					consoleDlg.find("#address").val(rowData.address);
 				}
 				$("#commit").click(function() {
 					$.ajax({
@@ -180,7 +202,10 @@ $(document).ready(
 					keyboard : false
 				});
 			}
-
+			/**
+			 * 删除显示框
+			 * @returns
+			 */
 			function delDig() {
 				$(".modal-title").html("删除用户");
 				var selectedRowId = $("#table_list_2").jqGrid("getGridParam",
@@ -190,13 +215,13 @@ $(document).ready(
 					return false;
 				}
 				$.ajax({
-					url : "delUser",
-					dataType : "json",
-					type : "GET",
-					data : {
+					url : "delUser",//后台url
+					dataType : "json",//后台返回数据类型（xml/text/json）
+					type : "GET",//请求类型
+					data : {//前台向后台发送的参数
 						id : selectedRowId
 					},
-					success : function(data) {
+					success : function(data) {//成功回调函数
 						if (ERROR != data.code) {
 							alert(data.message);
 							location.reload();
@@ -204,7 +229,7 @@ $(document).ready(
 							alert(data.message);
 						}
 					},
-					error : function() {
+					error : function() {//失败回调函数
 						alert("请求失败")
 					}
 				});

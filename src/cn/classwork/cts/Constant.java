@@ -1,5 +1,10 @@
 package cn.classwork.cts;
-
+/**
+ * 常量类
+ * @Title: Constant.java
+ * @Package cn.classwork.cts
+ * @version V1.0
+ */
 public interface Constant {
 	
 	public interface LoginConstant{

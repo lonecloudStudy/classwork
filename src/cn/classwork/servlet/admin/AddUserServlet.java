@@ -23,8 +23,8 @@ public class AddUserServlet extends BaseServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			User user = coverObj(User.class, req);
-			userService.addUser(user);
+			User user = coverObj(User.class, req);//封装user对象
+			userService.addUser(user);//将user对象存储到数据库中
 			JsonMsgUtils.successMsg("保存成功", resp);
 		} catch (Exception e) {
 			JsonMsgUtils.errorMsg("系统错误", resp);

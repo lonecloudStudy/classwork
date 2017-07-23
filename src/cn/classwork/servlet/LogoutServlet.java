@@ -22,7 +22,7 @@ public class LogoutServlet extends BaseServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//清除session中的user变量
 		req.getSession().setAttribute("user", null);
-		//将页面重定向到登录页面
+		//将页面重定向到首页页面
 		resp.sendRedirect("index.html");
 	}
 }

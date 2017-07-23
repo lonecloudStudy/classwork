@@ -2,7 +2,12 @@ package cn.classwork.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-
+/**
+ * 用户类
+ * @Title: User.java
+ * @Package cn.classwork.entity
+ * @version V1.0
+ */
 public class User implements Serializable{
 	
 	

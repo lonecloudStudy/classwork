@@ -17,12 +17,12 @@ import cn.classwork.util.JsonMsgUtils;
  * @date 2017年7月18日 下午2:55:29
  * @version V1.0
  */
-@WebServlet("/checkToken")
+@WebServlet("/checkToken")//获取认证信息
 public class CheckTokenServlet extends BaseServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Object user = req.getSession().getAttribute("user");
+		Object user = req.getSession().getAttribute("user");//从session 中获取用户
 		if (user!=null) {
 			JsonMsgUtils.jsonData(user, resp);
 		}else{

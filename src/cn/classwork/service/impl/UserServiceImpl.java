@@ -7,7 +7,12 @@ import java.util.List;
 import cn.classwork.base.BaseService;
 import cn.classwork.entity.User;
 import cn.classwork.service.UserService;
-
+/**
+ * 用户服务实现层
+ * @Title: UserServiceImpl.java
+ * @Package cn.classwork.service.impl
+ * @version V1.0
+ */
 public class UserServiceImpl extends BaseService implements UserService {
 
 	@Override
@@ -36,7 +41,7 @@ public class UserServiceImpl extends BaseService implements UserService {
 		// 查询数据库中数据
 		User user2 = userDao.findById(user.getId());
 		if (user2 != null) {
-			User coverupdateUser = coverupdateUser(user, user2);
+			User coverupdateUser = coverupdateUser(user2, user);
 			userDao.update(coverupdateUser);
 			return coverupdateUser;
 		}
@@ -46,43 +51,54 @@ public class UserServiceImpl extends BaseService implements UserService {
 	private User coverupdateUser(User source, User target) {
 		if (source != null && target != null) {
 			// 判断电话不为空
-			if (source.getTel() != null && target.getTel() != null && source.getTel().equals(target.getTel())) {
+			if (target.getTel() != null) {
 				// 设置新的电话号码
 				source.setTel(target.getTel());
 			}
 			// 判断昵称不为空
-			if (source.getNickname() != null && target.getNickname() != null
-					&& source.getNickname().equals(target.getNickname())) {
+			if (target.getNickname() != null) {
 				// 设置新的昵称
 				source.setNickname(target.getNickname());
 			}
 			// 判断性别不为空
 			if (target.getSex() != null) {
-				if (source.getSex() != null && source.getSex().equals(target.getSex())) {
-					// 设置新的性别
-					source.setSex(target.getSex());
-				}
+				// 设置新的性别
+				source.setSex(target.getSex());
 			}
 			// 判断qq不为空
 			if (target.getQq() != null) {
-				if (source.getQq() != null && source.getQq().equals(target.getQq())) {
-					// 设置新的qq号码
-					source.setQq(target.getQq());
-				}
+				// 设置新的qq号码
+				source.setQq(target.getQq());
 			}
 			// 判断地址不为空
 			if (target.getAddress() != null) {
-				if (source.getAddress() != null && source.getAddress().equals(target.getAddress())) {
-					// 设置新的地址
-					source.setAddress(target.getAddress());
-				}
+				// 设置新的地址
+				source.setAddress(target.getAddress());
 			}
 			// 判断密码不为空
-			if (target.getPassword()!=null) {
-				if (source.getPassword() != null && source.getPassword().equals(target.getPassword())) {
-					// 设置新的密码
-					source.setPassword(target.getPassword());
-				}
+			if (target.getPassword() != null) {
+				// 设置新的密码
+				source.setPassword(target.getPassword());
+			}
+			// 判断邮箱不为空
+			if (target.getEmail() != null) {
+				// 设置新的邮
+				source.setEmail(target.getEmail());
+			}
+			// 判断真实名字不为空
+			if (target.getEmail() != null) {
+				// 设置新的真实名字
+				source.setFullname(target.getFullname());
+			}
+			// 判断真实名字不为空
+			if (target.getUsername() != null) {
+				// 设置新的真实名字
+				source.setUsername(target.getUsername());
+			}
+			// 判断真实名字不为空
+			if (target.getNickname() != null) {
+				// 设置新的真实名字
+				source.setNickname(target.getNickname());
 			}
 		}
 		return source;
@@ -95,27 +111,27 @@ public class UserServiceImpl extends BaseService implements UserService {
 
 	@Override
 	public void deleteUserById(String idStr) {
-		if (idStr!=null) {
+		if (idStr != null) {
 			int id = Integer.parseInt(idStr);
 			userDao.deleteById(id);
 		}
-		
+
 	}
 
 	@Override
 	public void addUser(User user) {
-		//设置默认密码
+		// 设置默认密码
 		user.setPassword("123456");
-		//设置注册时间
+		// 设置注册时间
 		user.setRegistertime(new Date());
-		//设置登录时间
+		// 设置登录时间
 		user.setLogintime(new Date());
 		userDao.addUser(user);
 	}
 
 	@Override
-	public void updatePwd(String repasswd) {
-		
+	public void updatePwd(int id, String pwd) {
+		userDao.updatePwd(id, pwd);
 	}
 
 }

@@ -2,7 +2,13 @@ package cn.classwork.base;
 
 import java.io.Serializable;
 import java.util.List;
-
+/**
+ * 基础的数据库DB操作接口
+ * @Title: BaseDao.java
+ * @Package cn.classwork.base
+ * @version V1.0
+ * @param <T>
+ */
 public interface BaseDao<T> extends Serializable {
 
 	/***

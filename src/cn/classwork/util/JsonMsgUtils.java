@@ -8,7 +8,12 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 
 import cn.classwork.dto.JsonMessage;
-
+/**
+ * json操作工具类
+ * @Title: JsonMsgUtils.java
+ * @Package cn.classwork.util
+ * @version V1.0
+ */
 public class JsonMsgUtils {
 	/**
 	 * 返回成功消息

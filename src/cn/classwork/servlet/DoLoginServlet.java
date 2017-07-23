@@ -26,17 +26,17 @@ public class DoLoginServlet extends BaseServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String username = req.getParameter("username");
+		String username = req.getParameter("username");//获取参数
 		String password = req.getParameter("password");
-		if (!StringUtils.isAllNotNull(username, password)) {
+		if (!StringUtils.isAllNotNull(username, password)){//判断字符串为空
 			JsonMsgUtils.errorMsg("用户名或者密码为空", resp);
 		} else {
 			try {
-				User user = userService.checkLogin(username, password);
+				User user = userService.checkLogin(username, password);//后台校验是否登录
 				if (user == null) {
 					JsonMsgUtils.errorMsg("该用户不存在或者密码错误", resp);
 				} else {
-					req.getSession().setAttribute("user", user);
+					req.getSession().setAttribute("user", user);//将用户放入session中
 					JsonMsgUtils.successMsg("登录成功", resp);
 				}
 			} catch (Exception e) {

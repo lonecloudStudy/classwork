@@ -4,7 +4,12 @@ import java.sql.SQLException;
 import java.util.List;
 
 import cn.classwork.entity.User;
-
+/**
+ * 用户服务层
+ * @Title: UserService.java
+ * @Package cn.classwork.service
+ * @version V1.0
+ */
 public interface UserService{
 	
 	/**

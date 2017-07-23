@@ -5,7 +5,14 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Properties;
-
+/**
+ * 用户DB操作工具
+ * @Title: DBUtils.java
+ * @Package cn.classwork.util
+ * @author lonecloud
+ * @date 2017年7月23日 下午2:23:32
+ * @version V1.0
+ */
 public class DBUtils {
 	private static Connection connection = null;
 	private static Properties properties = new Properties();

@@ -7,11 +7,23 @@ import javax.servlet.http.HttpServletRequest;
 
 import cn.classwork.service.UserService;
 import cn.classwork.service.impl.UserServiceImpl;
-
-public class BaseServlet extends HttpServlet {
+/**
+ * 基础servlet类
+ * @Title: BaseServlet.java
+ * @Package cn.classwork.base
+ * @version V1.0
+ */
+public class BaseServlet extends HttpServlet {//继承与HttpServlet
 
 	protected UserService userService = new UserServiceImpl();
-
+	/**
+	 * 进行数据的封装
+	 * @Description: 有对象
+	 * @param clazz
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
 	protected <T> T coverObj(Class<T> clazz, HttpServletRequest request) throws Exception {
 		T t = clazz.newInstance();
 		Field[] fields = clazz.getDeclaredFields();

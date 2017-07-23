@@ -1,4 +1,4 @@
-package cn.classwork.servlet;
+package cn.classwork.servlet.admin;
 
 import java.io.IOException;
 import java.util.List;
