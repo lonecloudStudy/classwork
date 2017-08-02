@@ -25,7 +25,8 @@ import cn.classwork.util.StringUtils;
 public class DoLoginServlet extends BaseServlet {
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
+			throws ServletException, IOException {
 		String username = req.getParameter("username");//获取参数
 		String password = req.getParameter("password");
 		if (!StringUtils.isAllNotNull(username, password)){//判断字符串为空

@@ -43,7 +43,6 @@ public class RegisterServlet extends BaseServlet {
 				JsonMsgUtils.errorMsg("用户名不能为空", response);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

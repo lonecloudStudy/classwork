@@ -21,7 +21,8 @@ import cn.classwork.util.JsonMsgUtils;
 public class UpdateUserServlet extends BaseServlet {
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
+			throws ServletException, IOException {
 		try {
 			User user = coverObj(User.class, req);//封装数据
 			userService.updateUser(user);//更新用户

@@ -20,7 +20,8 @@ import cn.classwork.util.JsonMsgUtils;
 public class DelUserServlet extends BaseServlet {
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
+			throws ServletException, IOException {
 		try {
 			userService.deleteUserById(req.getParameter("id"));//删除用户
 			JsonMsgUtils.successMsg("删除成功", resp);

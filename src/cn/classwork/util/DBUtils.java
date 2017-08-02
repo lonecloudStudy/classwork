@@ -22,13 +22,13 @@ public class DBUtils {
 	private static String PWSSWORD = null;
 	static {
 		try {
+			//获取数据类
 			properties.load(DBUtils.class.getResourceAsStream("/jdbc.properties"));
 			URL = properties.getProperty("jdbc.url");
 			CLASSNAME = properties.getProperty("jdbc.class");
 			USERNAME = properties.getProperty("jdbc.username");
 			PWSSWORD = properties.getProperty("jdbc.password");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -69,7 +69,6 @@ public class DBUtils {
 			System.out.println("sql--"+sql);
 			resultSet = prepareStatement.executeQuery();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return resultSet;
@@ -85,7 +84,6 @@ public class DBUtils {
 			System.out.println("sql--"+sql);
 			prepareStatement.executeUpdate();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
